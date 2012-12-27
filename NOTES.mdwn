@@ -1,0 +1,19 @@
+DESIGN DOCUMENT
+===============
+Current scope/goal - human wandering around a world using love.physics.
+
+actor
+-----
+Contains physics objects, is drawable.
+
+world
+-----
+contains all actors, etc.
+contains the world physics object.
+Has a draw method for everything within that world. UI stuff can come later.
+
+adding actors to worlds
+-----------------------
+The constructor for an actor's body requires a world to put it in.
+If actors only exist in one world at a time (YES), then the world can be
+unique to the actor, hence used in the constructor.
