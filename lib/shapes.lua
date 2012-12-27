@@ -26,5 +26,6 @@ function shapes.newring(radius)
 		store[name] = love.physics.newChainShape(true, unpack(chain_args))
 	end
 	return store[name]
+end
 
 return shapes

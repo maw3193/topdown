@@ -1,10 +1,13 @@
 local Class = require "lib/hump/class"
+local Shapes = require "lib/shapes"
+
 local Actor = Class{name="actor", function(self, t)
 	-- Initialize physical properties
 	if not t.world then
 		print("Error: A world must be defined when constructing"..
 		" actors")
 	end
+	-- Body
 	self.physbody = love.physics.newBody(t.world.physworld,
 	                                     t.posx or self.posx,
 	                                     t.posy or self.posy,
@@ -22,7 +25,10 @@ local Actor = Class{name="actor", function(self, t)
 	self.physbody:setAngularDamping(t.angdamp or self.angdamp)
 	t.world:addActor(self)
 
-	self.radius = t.radius
+	-- Fixture
+	local shape = Shapes.newcircle(t.radius or self.radius)
+	self.physfix = love.physics.newFixture(self.physbody, shape)
+
 	self.torque = t.torque
 end}
 
@@ -30,6 +36,7 @@ end}
 
 -- Physical properties
 -- world is an argument with no default
+-- Used by the body
 Actor.posx = 0
 Actor.posy = 0
 Actor.angle = 0
@@ -41,7 +48,9 @@ Actor.velang = 0
 Actor.inertia = 0
 Actor.angdamp = 0
 
+-- Used by the fixture/shape
 Actor.radius = 10
+
 Actor.torque = 1
 
 -- Methods
