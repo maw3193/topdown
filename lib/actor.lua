@@ -9,6 +9,7 @@ local Actor = Class{name="actor", function(self, t)
 	                                     t.posx or self.posx,
 	                                     t.posy or self.posy,
 	                                     "dynamic")
+	print("posx, posy=", self.physbody:getX(), self.physbody:getY())
 	self.physbody:setAngle(t.angle or self.angle)
 	self.physbody:setMass(t.mass or self.mass)
 	local velx = t.velx or self.velx
@@ -45,9 +46,11 @@ Actor.torque = 1
 
 -- Methods
 function Actor.draw(self)
+	local posx, posy = self.physbody:getPosition()
+	local angle = self.physbody:getAngle()
 	love.graphics.push()
-	love.graphics.translate(self.posx, self.posy)
-	love.graphics.rotate(self.angle)
+	love.graphics.translate(posx, posy)
+	love.graphics.rotate(angle)
 	love.graphics.circle("line", 0, 0, self.radius)
 	love.graphics.line(0, 0, self.radius, 0)
 	love.graphics.pop()

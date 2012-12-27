@@ -14,7 +14,7 @@ end
 function World.update(self, dt)
 	self.physworld:update(dt)
 	for _,v in ipairs(self.actors) do
-		v:draw()
+		v:update(dt)
 	end
 end
 
