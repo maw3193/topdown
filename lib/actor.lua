@@ -25,10 +25,7 @@ local Actor = Class{name="actor", function(self, t)
 	self.physbody:setAngularDamping(t.angdamp or self.angdamp)
 	t.world:addActor(self)
 
-	-- Fixture
-	local shape = Shapes.newcircle(t.radius or self.radius)
-	self.physfix = love.physics.newFixture(self.physbody, shape)
-
+	self.radius = t.radius
 	self.torque = t.torque
 end}
 
