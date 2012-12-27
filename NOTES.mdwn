@@ -17,3 +17,17 @@ adding actors to worlds
 The constructor for an actor's body requires a world to put it in.
 If actors only exist in one world at a time (YES), then the world can be
 unique to the actor, hence used in the constructor.
+
+bodies
+------
+Properties to use:
+* position (x,y)
+* velocity (x,y)
+* mass
+* linear damping (drag)
+
+* angle
+* angular velocity
+* inertia (angular mass)
+* angular damping
+
