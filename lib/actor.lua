@@ -1,3 +1,4 @@
+local util = require "lib/util"
 local Class = require "lib/hump/class"
 local Shapes = require "lib/shapes"
 
@@ -60,8 +61,8 @@ function Actor.update(self, dt)
 end
 
 function Actor.updateBody(self)
-	print("self.mass = "..self.mass)
-	print("physbody is", self.physbody)
+	util.debug("self.mass = "..self.mass)
+	util.debug("physbody is", self.physbody)
 	self.physbody:setPosition(self.posx, self.posy)
 	self.physbody:setAngle(self.angle)
 	self.physbody:setMass(self.mass)
