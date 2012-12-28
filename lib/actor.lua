@@ -3,10 +3,7 @@ local Shapes = require "lib/shapes"
 
 local Actor = Class{name="actor", function(self, t)
 	-- Initialize physical properties
-	if not t.world then
-		print("Error: A world must be defined when constructing"..
-		" actors")
-	end
+	assert(t.world, "A world must be defined when constructing actors")
 	self.physbody = love.physics.newBody(t.world.physworld, 0, 0, "dynamic")
 	self.posx = t.posx
 	self.posy = t.posy
