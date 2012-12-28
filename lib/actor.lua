@@ -7,22 +7,18 @@ local Actor = Class{name="actor", function(self, t)
 		print("Error: A world must be defined when constructing"..
 		" actors")
 	end
-	-- Body
-	self.physbody = love.physics.newBody(t.world.physworld,
-	                                     t.posx or self.posx,
-	                                     t.posy or self.posy,
-	                                     "dynamic")
-	print("posx, posy=", self.physbody:getX(), self.physbody:getY())
-	self.physbody:setAngle(t.angle or self.angle)
-	self.physbody:setMass(t.mass or self.mass)
-	local velx = t.velx or self.velx
-	local vely = t.vely or self.vely
-	self.physbody:setLinearVelocity(t.velx or self.velx,
-	                                t.vely or self.vely)
-	self.physbody:setLinearDamping(t.lindamp or self.lindamp)
-	self.physbody:setAngularVelocity(t.velang or self.velang)
-	self.physbody:setInertia(t.inertia or self.inertia)
-	self.physbody:setAngularDamping(t.angdamp or self.angdamp)
+	self.physbody = love.physics.newBody(t.world.physworld, 0, 0, "dynamic")
+	self.posx = t.posx
+	self.posy = t.posy
+	self.angle = t.angle
+	self.mass = t.mass
+	self.velx = t.velx
+	self.vely = t.vely
+	self.lindamp = t.lindamp
+	self.velang = t.velang
+	self.inertia = t.inertia
+	self.angdamp = t.angdamp
+	self:updateBody()
 	t.world:addActor(self)
 
 	self.radius = t.radius
@@ -64,6 +60,21 @@ end
 
 function Actor.update(self, dt)
 
+end
+
+function Actor.updateBody(self)
+	print("self.mass = "..self.mass)
+	print("physbody is", self.physbody)
+	self.physbody:setPosition(self.posx, self.posy)
+	self.physbody:setAngle(self.angle)
+	self.physbody:setMass(self.mass)
+	local velx = self.velx
+	local vely = self.vely
+	self.physbody:setLinearVelocity(self.velx, self.vely)
+	self.physbody:setLinearDamping(self.lindamp)
+	self.physbody:setAngularVelocity(self.velang)
+	self.physbody:setInertia(self.inertia)
+	self.physbody:setAngularDamping(self.angdamp)
 end
 
 return Actor

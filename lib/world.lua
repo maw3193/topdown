@@ -1,7 +1,7 @@
 local Class = require "lib/hump/class"
 local World = Class{name = "World", function(self, t)
 	self.physworld = love.physics.newWorld()
-	self.actors = {}
+	self.actors = { __mode = "v" }
 end}
 
 function World.draw(self)

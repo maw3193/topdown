@@ -1,13 +1,17 @@
 local Camera = require "lib/hump/camera"
 local World = require "lib/world"
 local Actor = require "lib/actor"
+local Human = require "lib/human"
+local Planet = require "lib/planet"
 local world1
 local cam = Camera(0, 0)
 local actor1
-
+local planet1
 function love.load()
 	world1 = World()
-	actor1 = Actor{world=world1 }
+	actor1 = Human{world=world1, velx=20, velang=1 }
+	Human{world=world1, posx=25, posy=5}
+	planet1 = Planet{world=world1}
 end
 
 function love.draw()
@@ -20,6 +24,8 @@ function love.draw()
 	love.graphics.line(width / 2, 0, width / 2, height)
 	love.graphics.line(0, height / 2, width, height / 2)
 	love.graphics.setColor(255, 255, 255)
+
+	love.graphics.print("planet: "..planet1.physbody:getX()..","..planet1.physbody:getY(), 0, 0)
 end
 
 function love.update(dt)

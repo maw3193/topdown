@@ -20,8 +20,8 @@ function shapes.newring(radius)
 		local chain_args = {}
 		for i=1,segmentcount do 
 			local angle = i * mult
-			table.insert(chain_args, radius * cos(angle))
-			table.insert(chain_args, radius * sin(angle))
+			table.insert(chain_args, radius * math.cos(angle))
+			table.insert(chain_args, radius * math.sin(angle))
 		end
 		store[name] = love.physics.newChainShape(true, unpack(chain_args))
 	end
