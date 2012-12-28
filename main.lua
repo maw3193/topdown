@@ -25,7 +25,8 @@ function love.draw()
 	love.graphics.line(0, height / 2, width, height / 2)
 	love.graphics.setColor(255, 255, 255)
 
-	love.graphics.print("planet: "..planet1.physbody:getX()..","..planet1.physbody:getY(), 0, 0)
+	love.graphics.print(("planet: (%d, %d)"):format(planet1.physbody:getX(),
+                            planet1.physbody:getY()), 0, 0)
 end
 
 function love.update(dt)
