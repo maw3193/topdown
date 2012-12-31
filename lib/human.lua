@@ -56,16 +56,16 @@ function Human.draw(self)
 	love.graphics.setColor(255, 255, 255)
 	love.graphics.circle("line", 0, 0, self.radius)
 	love.graphics.setColor(self.bodycol)
-	love.graphics.drawq(self.image, self.bodyquad, 0, 0, angle,
+	love.graphics.drawq(self.image, self.bodyquad, 0, 0, 0,
 	                    1, 1, self.xoff, self.yoff)
 	love.graphics.setColor(self.headcol)
-	love.graphics.drawq(self.image, self.headquad, 0, 0, angle,
+	love.graphics.drawq(self.image, self.headquad, 0, 0, 0,
 	                    1, 1, self.xoff, self.yoff)
 	love.graphics.setColor(self.handcol)
-	love.graphics.drawq(self.image, self.handquad, 0, 0, angle,
+	love.graphics.drawq(self.image, self.handquad, 0, 0, 0,
 	                    1, 1, self.xoff, self.yoff)
 	love.graphics.setColor(self.weapcol)
-	love.graphics.drawq(self.image, self.weapquad, 0, 0, angle,
+	love.graphics.drawq(self.image, self.weapquad, 0, 0, 0,
 	                    1, 1, self.xoff, self.yoff)
 	love.graphics.pop()
 end
