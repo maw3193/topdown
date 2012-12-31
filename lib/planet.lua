@@ -8,6 +8,7 @@ local Planet = Class{name = "Planet", inherits=Actor, function(self, t)
 	-- Fixture
 	local shape = Shapes.newring(t.radius or self.radius)
 	self.physfix = love.physics.newFixture(self.physbody, shape)
+	self.physfix:setFriction(0)
 	self:updateBody()
 end}
 
