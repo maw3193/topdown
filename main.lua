@@ -9,7 +9,7 @@ local actor1
 local planet1
 function love.load()
 	world1 = World()
-	actor1 = Human{world=world1, velx=20, velang=1 }
+	actor1 = Human{world=world1, velx=20}
 	Human{world=world1, posx=25, posy=5}
 	planet1 = Planet{world=world1}
 end

@@ -5,7 +5,6 @@ local World = Class{name = "World", function(self, t)
 end}
 
 function World.draw(self)
-	love.graphics.print("World: Hello!", 0, 0)
 	for _,v in ipairs(self.actors) do
 		v:draw()
 	end
