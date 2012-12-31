@@ -61,8 +61,6 @@ function Actor.update(self, dt)
 end
 
 function Actor.updateBody(self)
-	util.debug("self.mass = "..self.mass)
-	util.debug("physbody is", self.physbody)
 	self.physbody:setPosition(self.posx, self.posy)
 	self.physbody:setAngle(self.angle)
 	self.physbody:setMass(self.mass)
