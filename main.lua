@@ -3,11 +3,13 @@ local World = require "lib/world"
 local Actor = require "lib/actor"
 local Human = require "lib/human"
 local Planet = require "lib/planet"
+local Building = require "lib/building"
 local util = require "lib/util"
 local world1
 local cam = Camera(0, 0)
 local actor1
 local planet1
+local building1
 
 setmetatable(_G, {
 	__newindex = function(t, key, value)
@@ -18,6 +20,7 @@ function love.load()
 	world1 = World()
 	planet1 = Planet{world=world1}
 	actor1 = Human{world=world1, angle = (math.pi / 2)}
+	building1 = Building{world=world1, posx = 64, posy = 64}
 	Human{world=world1, posx=25, posy=5}
 end
 

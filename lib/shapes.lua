@@ -19,6 +19,14 @@ function shapes.newcircle(radius)
 	return store[name]
 end
 
+function shapes.newrectangle(w, h)
+	local name = "rectangle"..w..","..h
+	if not store[name] then
+		store[name] = love.physics.newRectangleShape(w, h)
+	end
+	return store[name]
+end
+
 function shapes.newring(radius)
 	local name = "ring"..radius
 	if not store[name] then
