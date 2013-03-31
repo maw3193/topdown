@@ -1,7 +1,7 @@
 local shapes = {}
 
 local store = {}
-store.__mode = "v"
+setmetatable(store, {__mode = "v"})
 
 function shapes.newcircle(radius)
 	local name = "circle"..radius

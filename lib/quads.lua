@@ -1,7 +1,7 @@
 local Quads = {}
 
 local store = {}
-store.__mode = "v"
+setmetatable(store, {__mode = "v"})
 
 function Quads.new(x, y, w, h, sw, sh)
 	local name = ("%d,%d,%d,%d,%d,%d"):format(x, y, w, h, sw, sh)
