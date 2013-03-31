@@ -2,6 +2,29 @@ DESIGN DOCUMENT
 ===============
 Current scope/goal - human wandering around a world using love.physics.
 
+Inventory
+---------
+Contains items and quantities in a key/value store. Removes items that have
+zero quantity, and cannot have negative quantity.
+
+factory
+-------
+Is a building. Holds an inventory.
+
+building
+--------
+Is square. Is unable to move. draws with separately-coloured walls and body,
+and draws an image on top.
+
+planet
+------
+Is unable to move. Has an edge that cannot be passed.
+
+human
+-----
+Like an actor, but with complicated drawing - can draw head, body, hands and
+weapons with different colours.
+
 actor
 -----
 Contains physics objects, is drawable.
