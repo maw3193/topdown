@@ -5,7 +5,8 @@ local Shapes = require "lib/shapes"
 local Actor = Class{name="actor", function(self, t)
 	-- Initialize physical properties
 	assert(t.world, "A world must be defined when constructing actors")
-	self.physbody = love.physics.newBody(t.world.physworld, 0, 0, "dynamic")
+	self.physbody = love.physics.newBody(t.world.physworld, 0, 0,
+	                                     self.bodytype)
 	self.posx = t.posx
 	self.posy = t.posy
 	self.angle = t.angle
@@ -38,6 +39,7 @@ Actor.lindamp = 0
 Actor.velang = 0
 Actor.inertia = 0
 Actor.angdamp = 0
+Actor.bodytype = "dynamic" --defined by the Class
 
 -- Used by the fixture/shape
 Actor.radius = 10

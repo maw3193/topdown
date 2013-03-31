@@ -29,6 +29,7 @@ Human.handcol = {255, 220, 177}
 Human.weapcol = {0, 0, 0}
 -- Human.xoff
 -- Human.yoff
+Human.bodytype = "dynamic"
 -- Methods
 
 function Human.initImage(self, imagepath)

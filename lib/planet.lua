@@ -30,6 +30,7 @@ Planet.imagepath = "assets/noise.png"
 -- Planet.spritebatch
 -- Planet.stencil has no default
 Planet.col = {0, 191, 0}
+Planet.bodytype = "static"
 
 function Planet.initImage(self, imagepath)
 	self.image = Images.new(imagepath)
