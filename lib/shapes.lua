@@ -3,6 +3,14 @@ local shapes = {}
 local store = {}
 setmetatable(store, {__mode = "v"})
 
+function shapes.setStore(newstore)
+	store = newstore
+end
+
+function shapes.getStore()
+	return store
+end
+
 function shapes.newcircle(radius)
 	local name = "circle"..radius
 	if not store[name] then
