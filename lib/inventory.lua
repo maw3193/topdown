@@ -23,11 +23,23 @@ function Inventory.addItem(self, item, quantity)
 	end
 end
 
+function Inventory.addItems(self, items)
+	for k, v in pairs(items) do
+		self:addItem(k, v)
+	end
+end
+
 function Inventory.remItem(self, item, quantity)
 	if quantity == nil then
 		self[item] = nil
 	else
 		self:addItem(item, -quantity)
+	end
+end
+
+function Inventory.remItems(self, items)
+	for k,v in pairs(items) do
+		self:remItem(k, v)
 	end
 end
 
