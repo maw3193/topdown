@@ -3,6 +3,7 @@ local Class = require "lib/hump/class"
 -- Inventory, stores items where the key is the item, and the value is the
 -- quantity.
 local Inventory = Class{name="Inventory", function(self, t)
+	local k,v
 	for k,v in pairs(t) do
 		if v ~= 0 then
 			self[k] = v
@@ -26,6 +27,7 @@ function Inventory.addItem(self, item, quantity)
 end
 
 function Inventory.addItems(self, items)
+	local k,v
 	for k, v in pairs(items) do
 		self:addItem(k, v)
 	end
@@ -40,6 +42,7 @@ function Inventory.remItem(self, item, quantity)
 end
 
 function Inventory.remItems(self, items)
+	local k,v 
 	for k,v in pairs(items) do
 		self:remItem(k, v)
 	end
@@ -47,6 +50,7 @@ end
 
 function Inventory.print(self)
 	local str = ""
+	local k,v
 	for k,v in pairs(self) do
 		str = str..("%s: %d\n"):format(k, v)
 	end
