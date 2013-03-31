@@ -14,6 +14,8 @@ end}
 
 function Inventory.addItem(self, item, quantity)
 	if self[item] then
+		assert (self[item] + quantity >= 0, "Inventory cannot hold a"..
+		                                    " negative number of items")
 		self[item] = self[item] + quantity
 		if self[item] == 0 then
 			self[item] = nil
