@@ -5,6 +5,7 @@ local Human = require "lib/human"
 local Planet = require "lib/planet"
 local Building = require "lib/building"
 local Factory = require "lib/factory"
+local Recipie = require "lib/recipie"
 local util = require "lib/util"
 local world1
 local cam = Camera(0, 0)
@@ -17,11 +18,18 @@ setmetatable(_G, {
 		print("Addition to global table:", key, value)
 	end })
 
+local foodrecipie = Recipie{
+	inputs={barry=1},
+	outputs={bar=1},
+	period=1
+}
+
 function love.load()
 	world1 = World()
 	planet1 = Planet{world=world1}
 	actor1 = Human{world=world1, angle = (math.pi / 2)}
-	building1 = Factory{world=world1, posx = 64, posy = 64, inventory={
+	building1 = Factory{world=world1, posx = 64, posy = 64,
+	recipie=foodrecipie, inventory={
 		foo = 1,
 		bar = 2,
 		barry = 5,

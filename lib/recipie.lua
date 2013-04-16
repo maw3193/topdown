@@ -19,3 +19,5 @@ end}
 Recipie.period = 1
 -- Recipie.inputs has no default
 -- Recipie.outputs has no default
+
+return Recipie
